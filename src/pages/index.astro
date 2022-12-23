@@ -14,12 +14,21 @@
 			<div class="noise"></div>
 			<div class="spotlight"></div>
 			<div class="top-bg"></div>
-			<div class="bottom-bg"></div>
+			<div class="bottom-bg">
+			</div>
 		</div>
+		<header>
+			<div class="lights-right"></div>
+			<div class="logo"></div>
+			<div class="lights-left"></div>
+		</header>
 		<div class="globe-wrapper">
 			<div class="globe-img"></div>
 			<!-- <img class="globe-img" src="/svg/globe (3).svg" alt=""> -->
+			<!-- <img class="globe-img" src="/svg/globe (3).svg" alt=""> -->
+			<div class="type"></div>
 		</div>
+		
 	</body>
 </html>
 <style lang="scss">
@@ -27,26 +36,22 @@
 	margin: 0;
 	box-sizing: border-box;
  }
-html{
-	width: 100vw;
-	height: 100%;
-	overflow: hidden;
-	background: #000;
-}
-.background{
+body{
 	width: 100vw;
 	height: 100vh;
+	overflow: hidden;
 	background-color:  #254B43;
 }
 
+
 .noise{
 	position: absolute;
-	background: url('/noise.png');
 	mix-blend-mode: overlay;
-	width: 100%;
-	height: 100%;
 	opacity: 0.5;
-	z-index: 1;
+	z-index: 0;
+	background-image: url('/noise.png');
+	width: 100vw;
+	height: 100vh;
 }
 
 .spotlight {
@@ -54,56 +59,47 @@ html{
     width: 65%;
     height: 95%;
     transform: translate(28%, -0%);
-    top: 14%;
+    top: 0;
     background: #f7f7f7;
     mix-blend-mode: overlay;
     opacity: 0.55;
-    filter: blur(110px) blur(111px);
+	filter: blur(110px) blur(111px);
     z-index: 2;
-    clip-path: circle(1000%);
+	border-radius:100% ;
 }
 .bottom-bg {
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	transform: translate(0%, 45%);
-	// top: 45%;
 	background: #0F1F1C;
 	/* bg curve */
-	clip-path: inset(1% -4% -58% -5% round 51%/34%);
-
+	clip-path: inset(0% -30% -58% -28% round 51%/34%);
 }
+
 
 .globe-wrapper{
-	// display: block;
-	position: fixed;
-	width: 65%;
-	height: 65%;
-	top: 50%;
-	transform: translate(50%,-50%);
+    width: 85vw;
+    position: relative;
+    top: 20vh;
+    margin: auto;
 }
-.globe-img{
-	position: relative;
-    width: 100%;
-    height: 100%;
-    background:url('/globe.png');
-    // background-image: url('/svg/globe (3).svg');
+
+.globe-img {
+	height: clamp(50vmin,60vmax,55vh);
+    background: url(/globe.png);
     background-repeat: no-repeat;
-	background-size: contain;
-    filter: drop-shadow(0.1px 0px 0px #151c1a) drop-shadow(3.2px 1.8px 1px rgba(255,255,255,0.1882352941));
+    background-size: contain;
+    background-position: center;
+    width: 100%;
 }
-
-// .globe-img{
-//     position: absolute;
-//     width: clamp(50%,55%,45%);
-//     transform: translate(50%,-48%);
-//     top: 50%;
-//     left: 0;
-// 	// background-image: url('/svg/globe (3).svg');
-// 	// background-repeat: no-repeat;
-
-// 	filter: drop-shadow(0.1px 0px 0px #151c1a) drop-shadow(3.2px 1.8px 1px #ffffff30);
-// }
+.type{
+	background-image: url(/svg/type.svg);
+    height: 28vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
 
 </style>
 
