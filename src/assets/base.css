@@ -1,0 +1,124 @@
+*,::before,::after{
+ margin: 0;
+ box-sizing: border-box;
+}
+
+body {
+ width: 100vw;
+ min-height: 100vh;
+ overflow-x: hidden;
+ background-color: #254B43;
+ display: flex;
+ flex-direction: column;
+}
+
+header {
+  width: 100%;
+  position: relative;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+   background-image: url('/svg/logo.svg');
+   background-size: contain;
+   background-repeat: no-repeat;
+   width: 5vw;
+   height: 5vh;
+   margin:1rem auto;
+ }
+
+ .lights {
+   position: absolute;
+   background-image: url('/svg/lights.svg');
+   height: 94px;
+   width: 127px;
+   background-repeat: no-repeat left top;
+   position: absolute;
+   top: 0;
+ }
+
+ .lights.lights-left {
+   transform: rotateY(-180deg);
+   left: 0;
+ }
+
+ .lights.lights-right {
+   right: 0;
+ }
+
+.noise {
+ position: absolute;
+ mix-blend-mode: overlay;
+ top: 0;
+ left: 0;
+ opacity: 0.5;
+ z-index: 0;
+ background-image: url('/noise.png');
+ width: 100vw;
+ height: 100vh;
+}
+
+.spotlight {
+  position: absolute;
+  width: 65%;
+  height: 95%;
+  transform: translate(28%, -0%);
+  top: 0;
+  background: #fff;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  filter: blur(110px) blur(111px);
+  z-index: 2;
+  border-radius: 100%;
+}
+
+.bottom-bg {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  background: #0F1F1C;
+  /* bg curve */
+  clip-path: inset(0% -30% -58% -28% round 51%/34%);
+}
+
+.globe-img {
+  position: relative;
+  display: block;
+  width: 544px;
+  max-width: 90%;
+  height: 622px;
+  margin: 0 auto -8vh auto;
+  background: url(/globe.png) no-repeat center center;
+  background-size: contain;
+  z-index: 3;
+}
+
+.type {
+  position: relative;
+  margin: 0 auto -30vh auto;
+  background-image: url(/svg/type.svg);
+  height: 280px;
+  width: 100%;
+  max-width: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 99999;
+}
+
+@media (max-width: 600px) {
+  .globe-img {
+    margin-bottom: 0;
+    height: 400px;
+  }
+
+  .type {
+    margin-top: -120px;
+    margin-bottom: -300px;
+  }
+}
