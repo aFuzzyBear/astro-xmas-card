@@ -1,5 +1,6 @@
 ---
 import '../assets/base.css'
+import Snow from '../components/Snow.astro';
 ---
 
 <html lang="en">
@@ -21,7 +22,12 @@ import '../assets/base.css'
 			<div class="spotlight"></div>
 			<div class="top-bg"></div>
 		</div>
-		<div class="globe-img"></div>
+		<div class="globe-img">
+			<div class="snow-wrapper">
+				<Snow numFlakes={50}></Snow>
+			</div>
+
+		</div>
   		<div class="type"></div>
     <div class="bottom-bg"></div>
 	</body>
