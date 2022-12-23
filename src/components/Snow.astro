@@ -1,0 +1,78 @@
+---
+export interface Props{
+  /** Number of Snowflakes defaults to 50 */
+  numFlakes?: number
+}
+const {numFlakes = 50} = Astro.props 
+const random =(num)=> Math.floor(Math.random()*num)
+
+---
+<div class="snow-wrapper">
+  {
+    Array(numFlakes).fill(x=>x = <span class="snowflake" 
+    style={`
+      --left: ${random(100)}%;
+      --ini: ${random(20) - 5}vw; 
+      --end: ${random(10) - 4}vw;
+      --speed: ${10 + random(25)}s; 
+      --size: ${(random(5) * 0.25).toFixed(3)}vw; 
+      --delay: -${random(15)}s;
+      `
+    }
+    ></span>
+    )
+  }
+
+</div>
+
+<style lang="scss" is:global>
+  .snow-wrapper{
+    width: 100%;
+    height: 76%;
+    transform: scaleX(0.90);
+    clip-path: path('M453 475.038C508.84 425.224 544 352.718 544 272C544 121.779 422.221 0 272 0C121.779 0 0 121.779 0 272C0 352.718 35.16 425.224 91.0001 475.038L91 475C91 430.241 453 430.241 453 475L453 475.038Z');
+    @media screen and (max-width:600px) {
+      transform: translate(0px, -50px) scale(0.6); 
+    }
+  }
+  .snowflake{
+    width: var(--size);
+    // width: 4rem;
+    height: var(--size);
+    background: white;
+    // background: url('/svg/SnowFlake.svg') no-repeat center white;
+    border-radius: 50%;
+    position: absolute;
+    top: -5vh;
+    left: var(--left);
+    animation: snowfall var(--speed) linear infinite;
+    animation-delay: var(--delay);
+  }
+  .snowflake:nth-child(2n+1){
+    opacity: 0.4;
+  }
+  .snowflake:nth-child(3n){
+    opacity: 0.6;
+  }
+  /* uses CSS variables to determine initial and final position */
+  @keyframes snowfall {
+    0% {
+        transform: translate3d(var(--ini), 0, 0);
+    }
+    100% {
+        transform: translate3d(var(--end), 80vh, 0);
+    }
+  }
+  @keyframes flicker{
+    0%{
+      opacity: 0.9;
+    }
+    50%{
+      opacity:0.4;
+    }
+    100%{
+      opacity:0.75;
+    }
+  }
+
+</style>
