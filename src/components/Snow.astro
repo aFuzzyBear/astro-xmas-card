@@ -15,8 +15,10 @@ const random =(num)=> Math.floor(Math.random()*num)
       --ini: ${random(20) - 5}vw; 
       --end: ${random(10) - 4}vw;
       --speed: ${5 + random(15)}s; 
-      --size: ${random(5) * 0.25}vw; 
-      --delay: -${random(15)}s;`
+      --size: ${(random(5) * 0.25).toFixed(3)}vw; 
+      --delay: -${random(15)}s;
+      --timing: cubic-bezier(${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)})
+      `
     }
     ></span>
     )
@@ -30,6 +32,9 @@ const random =(num)=> Math.floor(Math.random()*num)
     height: 80%;
     transform: scaleX(0.95);
     clip-path: path('M453 475.038C508.84 425.224 544 352.718 544 272C544 121.779 422.221 0 272 0C121.779 0 0 121.779 0 272C0 352.718 35.16 425.224 91.0001 475.038L91 475C91 430.241 453 430.241 453 475L453 475.038Z');
+    @media screen and (max-width:600px) {
+      transform: translate(10px, -50px) scale(0.6); 
+    }
   }
   .snowflake{
     width: var(--size);
@@ -44,6 +49,9 @@ const random =(num)=> Math.floor(Math.random()*num)
     animation: snowfall var(--speed) linear infinite;
     animation-delay: var(--delay);
   }
+  .snowflake:nth-child(2n){
+    animation: flicker var(--speed) linear infinite;
+  }
   /* uses CSS variables to determine initial and final position */
   @keyframes snowfall {
     0% {
@@ -51,6 +59,17 @@ const random =(num)=> Math.floor(Math.random()*num)
     }
     100% {
         transform: translate3d(var(--end), 80vh, 0);
+    }
+  }
+  @keyframes flicker{
+    0%{
+      opacity: 0.9;
+    }
+    50%{
+      opacity:0.4;
+    }
+    100%{
+      opacity:0.75;
     }
   }
 
