@@ -17,7 +17,6 @@ const random =(num)=> Math.floor(Math.random()*num)
       --speed: ${5 + random(15)}s; 
       --size: ${(random(5) * 0.25).toFixed(3)}vw; 
       --delay: -${random(15)}s;
-      --timing: cubic-bezier(${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)},${(Math.random()).toFixed(3)})
       `
     }
     ></span>
@@ -33,7 +32,7 @@ const random =(num)=> Math.floor(Math.random()*num)
     transform: scaleX(0.95);
     clip-path: path('M453 475.038C508.84 425.224 544 352.718 544 272C544 121.779 422.221 0 272 0C121.779 0 0 121.779 0 272C0 352.718 35.16 425.224 91.0001 475.038L91 475C91 430.241 453 430.241 453 475L453 475.038Z');
     @media screen and (max-width:600px) {
-      transform: translate(10px, -50px) scale(0.6); 
+      transform: translate(0px, -50px) scale(0.6); 
     }
   }
   .snowflake{
