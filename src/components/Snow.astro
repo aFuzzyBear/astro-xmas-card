@@ -14,7 +14,7 @@ const random =(num)=> Math.floor(Math.random()*num)
       --left: ${random(100)}%;
       --ini: ${random(20) - 5}vw; 
       --end: ${random(10) - 4}vw;
-      --speed: ${5 + random(15)}s; 
+      --speed: ${10 + random(25)}s; 
       --size: ${(random(5) * 0.25).toFixed(3)}vw; 
       --delay: -${random(15)}s;
       `
@@ -28,8 +28,8 @@ const random =(num)=> Math.floor(Math.random()*num)
 <style lang="scss" is:global>
   .snow-wrapper{
     width: 100%;
-    height: 80%;
-    transform: scaleX(0.95);
+    height: 76%;
+    transform: scaleX(0.90);
     clip-path: path('M453 475.038C508.84 425.224 544 352.718 544 272C544 121.779 422.221 0 272 0C121.779 0 0 121.779 0 272C0 352.718 35.16 425.224 91.0001 475.038L91 475C91 430.241 453 430.241 453 475L453 475.038Z');
     @media screen and (max-width:600px) {
       transform: translate(0px, -50px) scale(0.6); 
@@ -48,8 +48,11 @@ const random =(num)=> Math.floor(Math.random()*num)
     animation: snowfall var(--speed) linear infinite;
     animation-delay: var(--delay);
   }
-  .snowflake:nth-child(2n){
-    animation: flicker var(--speed) linear infinite;
+  .snowflake:nth-child(2n+1){
+    opacity: 0.4;
+  }
+  .snowflake:nth-child(3n){
+    opacity: 0.6;
   }
   /* uses CSS variables to determine initial and final position */
   @keyframes snowfall {
