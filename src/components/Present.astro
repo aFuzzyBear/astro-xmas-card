@@ -1,0 +1,31 @@
+<script>
+    /* consoleimg v1.0 - chris johnson / @defaced */const consoleimg={load:function(e,{size:o=320,color:n="transparent"}={}){const t=new FileReader;t.addEventListener("load",function(){const e="background: url('"+t.result+"') center center no-repeat; font-size: "+o+"px; background-size: contain; background-color:"+n;console.log("%c     ",e)},!1),fetch(e).then(e=>e.blob()).then(e=>{if(0===e.type.indexOf("image")){if(e.size>8192&&navigator.userAgent.indexOf("Firefox")>0)throw new Error("Image size too big to be displayed in Firefox.");return e}throw new Error("Valid image not found.")}).then(e=>t.readAsDataURL(e)).catch(e=>console.warn(e.message))}};
+    const config = ()=>`
+Start playing with the new features released from Astro
+
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
+export default defineConfig({
+experimental:{
+    prerender:true,
+    errorOverlay:true,
+    contentCollections:true
+}
+});
+`
+
+const additionalLinks = ()=> `
+🧑‍🚀 Astro : https://www.astro.build
+🎊 Play  : https://www.astro.new
+📚 Docs  : https://docs.astro.build
+🤖 Github : https://github.com/withastro/astro
+🛰️ Community : https://www.astro.build/chat
+
+Check out https://astro.badg.es for your very own "Built with Astro" Community Badge and personal scorecard.
+`
+    consoleimg.load('/svg/true.svg', {size: 100, color: 'black'})
+    setTimeout(()=>console.log(config(),additionalLinks()),500)
+    function beAwesome(){console.log(`Remember to keep being awesome 👊`)}
+    globalThis.beAwesome = beAwesome
+</script>
